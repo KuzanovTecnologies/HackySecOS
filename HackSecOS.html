@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>HackySecOS</title>
+   <style>
+       body {
+           font-family: Arial, sans-serif;
+           text-align: center;
+           background-color: #f4f4f9;
+           color #333;
+           margin: 0; 
+           padding: 20px;
+      }
+      header { 
+           padding: 20px;
+           background-color: #0078d4;
+           color: white;
+     }
+     button, input[type="submit"] {
+         background-color: #0078d4;
+         color: white;
+         border: none;
+         padding: 10px 20px;
+         margin-top: 10px;
+         cursor: pointer;
+         font-size: 16px;
+    }
+    button:hover, input[type="submit"]:hover {
+        background-color: #0056a3;
+    }
+    footer {
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #333;
+        color: white;
+    }
+    form {
+        margin-top: 20px;
+    }
+    input[type="text"] {
+       padding: 10px;
+       width: 80% 
+       max-width: 300px;
+       margin-bottom: 10px;
+      }
+      .theme-toggle {
+        margin-top: 20px;
+      }
+  </style>
+</head>
+<body>
+    <header>
+         <h1>Bem-vindo ao HackySecOS</h1>
+         <p>Feito para cibersegurança (Hacker Ético) e inteligência anti-viral</p>
+    </header>
+    <main>
+        <!-- Form for user feedback -->
+        <form onsubmit="submitFeedback(event)">
+            <h2>Deixe seu feedback</h2>
+            <input type="text" id="feedback" placeholder="Digite seu feedback aqui" required>
+            <br>
+            <input type="submit" value="Enviar">
+       </form>
+       
+       <!-- Dynamic message -->
+       <div id="dynamic-content" style="margin-top: 20px;">
+           <p>Clique abaixo para carregar noticias sobre cibersegurança:</p>
+           <button onclick="loadCyberNews()">Carregar Noticias</button>
+           <ul id="news-list"></ul>
+       </div>
+       
+       <!-- Theme toggle -->
+       <div class="theme-toggle">
+           <button onclick="toggleTheme()">Alternar Tema (Claro/Escuro)</button>
+      </div>
+  </main>
+  <footer
+      <p>© 2024 HackySecOS. Todos os direitos reservados.</p>
+  </footer>
+  <script>
+       // Handle feedback submission 
+       function submitFeedback(event) {
+            event.preventDefault();
+            const feedback =
+document.getElementById("feedback").value = ""; // Clear the form
+}
+     
+// Load cybersecurity news dynamically 
+function loadCyberNews() {
+    const newsList = document.getElementById("news-list");
+    newsList.innerHTML = ""; // Clear existing news 
+    const news = [ 
+        "Nova vulnerabilidade descoberta em sistemas Linux.",
+        "Ataques de ransomware aumentaram 20% este ano.", 
+        "5 dicas para proteger seus dados pessoais online."
+   ];
+   news.forEach(item => {
+       const listItem = document.createElement("li");
+       listItem.textContent = item;
+       newsList.appendChild(listItem);
+   });
+}
+
+// Toggle between light and dark themes
+function toggleTheme() {
+    document.body.classList.toggle("dark-theme");
+    document.body.style.backgroundColor = document.body.classList.contains("dark-theme") ? "#333" : "#f4f4f9";
+    document.body.style.color = document.body.classList.contains("dark-theme") ? "f4f4f9" : "#333";
+    }
+</script>
+</body>
+</html> 
+
+<div id="relogio" style="font-size: 18px; margin-top: 10px;"></div>
+<script>
+    function atualizaRelogio() {
+        const agora = new Date();
+        const horario = agora.toLocaleTimeString();
+        document.getElementById("relogio").innerText = `hora atual: (21:11)`;
+}
+setInterval(atualizaRelogio, 1000); // Atualiza imediamente ao carregar 
+</script>
+
+<div id="histórico-feedback" style="margin-top: 20px;">
+     <h3>Histórico de Feedback:</h3>
+     <ul id="lista-feedback"></ul
+</div>
+
+<script>
+    function submitFeedback(event) {
+    event.preventDefault();
+    const feedback = document.getElementById("lista-feedback").value;
+    if (feedback) {
+        const lista = document.getElementById("lista-feedback");
+        const novoItem = document.createElement("li");
+        novoItem.textContext = feedback;
+        lista.appendChild(novoItem);
+        alert(`Obrigado pelo seu feedback: "${feedback}"`);
+        document.getElementById("feedback").value = ""; // Limpa o campo 
+     }
+   }
+</script>
+
+<div style="margin-top: 20px;">
+    <div id="barra-progresso" style="background: #ddd; height: 20px; width: 100%; max-width 400px; margin: auto; border-radius: 5px; overflow: hidden;" 
+    </div>
+</div>
+
+<script>
+    function loadCyberNews() {
+        const barra = document.getElementById("progresso");
+        barra.style.width = "0"; // Reset progress bar 
+        setTimeout(() => {
+            const newsList = document.getElementById("news-list");
+            newsList.innerHTML = ""; // Limpa noticias antigas 
+            const news = [ 
+            "Nova vulnerabilidade descoberta em sistemas Linux.",
+            "Ataques de ransomware aumentaram 20% este ano.",
+            "5 dicas para proteger seus dados pessoais online.", 
+        ];
+        news.forEach(item => {
+            const listItem = document.createElement("li");
+            listItem.textContent = item;
+            newsList.appendChild(listItem);
+        ]);
+     }, 1000);  // Simula o carregamento das noticias 
+  }
+</script>
+
+<div id="painel-controle" style="margin-top: 20px;">
+    <h3>Painel de Controle</h3>
+    <div style="display: flex; gap: 10px; justify-content: center;":>
+    <div style="display: flex; gap: 10px; justify-content: center;">
+      h4>IP Publico</h4>
+      <p id="ip-publico">Carregando...</p>
+  </div>
+  <div style="background: #f4f4f9; padding: 10px; border-radius: 5px; width: 150;">
+      <h4>Status<h4>
+      <p>Segurança: Alta</p>
+    </div>
+  </div>
+</div>
+
+<script>
+     // Fetch public IP
+     async function fetchIP() {
+         const response = await fetch('https://api.ipify.org?format=json');
+         const data = await response.json();
+         document.getElementById("ip-publico").innerText = data.ip;
+      }
+      fetchIP();
+    </script>
+
